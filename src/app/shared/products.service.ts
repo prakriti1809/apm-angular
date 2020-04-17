@@ -1,4 +1,4 @@
-import {IProduct} from '../product-list/product';
+import {IProduct} from '../products/product';
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, pipe, throwError} from 'rxjs';
