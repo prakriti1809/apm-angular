@@ -1,0 +1,7 @@
+
+.content-wrapper {
+    display: flex;
+}
+.product-image {
+    width: 300px;
+}
