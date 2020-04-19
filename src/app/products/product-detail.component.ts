@@ -16,22 +16,19 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('ngOnInit of product detail');
     const id = +this.route.snapshot.paramMap.get('id');
-    if (isNaN(id)) {
-        this.showInvalidProduct();
-    } else {
-      this.productService.getProducts().subscribe({
-          next: (products) => {
-            const product = products.filter(p => p.productId === id);
-            if (product.length) {
+    this.productService.getProducts().subscribe({
+      next: (products) => {
+          const product = products.filter(p => p.productId === id);
+          if (product.length) {
               this.product = product[0];
-            } else {
+          } else {
               this.showInvalidProduct();
-            }
-          },
-          error: (err) => console.error('Error fetching product with id: ', id)
-      });
-    }
+          }
+      },
+      error: (err) => console.error('Error fetching product with id: ', id)
+    });
   }
 
   showInvalidProduct(): void {
